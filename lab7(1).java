@@ -67,11 +67,13 @@ class Manager implements Runnable {
 }
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread devThread = new Thread(new Developer("Dev1", 1.0, 2));
         Thread mgrThread = new Thread(new Manager("Manager1", 5.0, 0.2));
 
         devThread.start();
         mgrThread.start();
+
+        devThread.sleep(3000);
     }
 }
